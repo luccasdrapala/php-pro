@@ -2,10 +2,7 @@
 
 function routes():array
 {
-    return[
-        "/" => 'Home@index',
-        '/user/create' => 'User@create'
-    ];
+    return require 'routes.php';
 }
 
 function verifyUriRoute($uri, $routes)
