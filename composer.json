@@ -10,7 +10,7 @@
     "require": {},
     "autoload": {
         "files": [
-
+            "app/helpers/constantes.php"
         ],
         "psr-4": {
             "app\\": "app"

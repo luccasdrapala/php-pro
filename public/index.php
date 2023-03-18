@@ -1,5 +1,7 @@
 <?php 
 
-echo "meu index";
+require_once '../vendor/autoload.php';
+
+echo TESTE;
 
 ?>
