@@ -1,0 +1,19 @@
+{
+    "name": "luccasdrapala/php-pro",
+    "description": "php-profissional",
+    "authors": [
+        {
+            "name": "Luccas Drapala",
+            "email": "luccasdrapala@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+
+        ],
+        "psr-4": {
+            "app\\": "app"
+        }
+    }
+}
