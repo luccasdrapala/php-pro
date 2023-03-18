@@ -1,7 +1,7 @@
 <?php 
 
-require_once '../vendor/autoload.php';
+require 'bootstrap.php';
 
-echo TESTE;
+router();
 
 ?>
