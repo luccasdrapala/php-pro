@@ -8,7 +8,7 @@ function routes():array
 function verifyUriRoute($uri, $routes)
 {
     if(array_key_exists($uri, $routes)){
-        return [];
+        return [$uri => $routes[$uri]];
     }
     return [];
 }
@@ -19,5 +19,17 @@ function router()
 
     $routes = routes();
 
-    verifyUriRoute($uri, $routes);
+    $matchedUri = verifyUriRoute($uri, $routes);
+
+    if(empty($matchedUri)){
+        $matchedUri = array_filter(
+            array_keys($routes),
+            function($value) use($uri){
+                $regex = str_replace('/', '\/', ltrim($value, '/'));
+                return preg_match("/^$regex$/", trim($uri, '/'));
+            }
+        );
+    }
+    
+    var_dump($matchedUri);
 }
