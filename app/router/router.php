@@ -13,12 +13,12 @@ function verifyUriRoute($uri, $routes)
     return [];
 }
 
-function regularExpressionMatchArrayRoutes($routes, $uri){
+function regularExpressionMatchArrayRoutes($routes, $uri){ //constroi rota dinamica
     return array_filter(
         array_keys($routes),
         function($value) use($uri){
             $regex = str_replace('/', '\/', ltrim($value, '/'));
-            return preg_match("/^$regex$/", trim($uri, '/'));
+            return preg_match("/^$regex$/", ltrim($uri, '/'));
         }
     );
 }
@@ -29,11 +29,18 @@ function router()
 
     $routes = routes();
 
-    $matchedUri = verifyUriRoute($uri, $routes);
+    $matchedUri = verifyUriRoute($uri, $routes); //verifica se é uma rota não dinamica, caso seja dinamica retorna vazio
 
     if(empty($matchedUri)){
         $matchedUri = regularExpressionMatchArrayRoutes($routes, $uri);
+        if(!empty($matchedUri)){
+            $matchedToGetParams = array_keys($matchedUri);
+            var_dump($matchedToGetParams);
+            // $params = array_diff(
+            //     explode('/', ltrim($uri)),
+            //     explode('/', ltrim($matchedToGetParams, '/'))
+            // );
+        }
     }
-    
-    var_dump($matchedUri);
+
 }
