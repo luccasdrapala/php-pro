@@ -1,5 +1,5 @@
 <?php 
 
-function controller(){
-    
+function callController($matchedUri){
+
 }

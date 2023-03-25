@@ -1,19 +1,17 @@
 <?php 
 
-function routes():array
-{
+function routes () {
     return require 'routes.php';
 }
 
-function verifyUriRoute($uri, $routes)
-{
+function verifyUriRoute ($uri, $routes) {
     if(array_key_exists($uri, $routes)){
         return [$uri => $routes[$uri]];
     }
     return [];
 }
 
-function regularExpressionMatchArrayRoutes($routes, $uri){ //constroi rota dinamica
+function regularExpressionMatchArrayRoutes ($routes, $uri) { //constroi rota dinamica
     return array_filter(
         array_keys($routes),
         function($value) use($uri){
@@ -24,7 +22,7 @@ function regularExpressionMatchArrayRoutes($routes, $uri){ //constroi rota dinam
     );
 }
 
-function params($matchedUri, $uri){
+function params ($matchedUri, $uri) {
 
     if(!empty($matchedUri)){
     $matchedToGetParams = array_values($matchedUri)[0];
@@ -36,7 +34,7 @@ function params($matchedUri, $uri){
     return [];
 }
 
-function paramsFormat($uri, $params){
+function paramsFormat ($uri, $params) {
     $paramsData = [];
     foreach($params as $index => $param){
         $paramsData[$uri[$index - 1]] = $param;
@@ -44,8 +42,8 @@ function paramsFormat($uri, $params){
     return $paramsData;
 }
 
-function router()
-{
+function router () {
+
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
     $routes = routes();
@@ -59,6 +57,11 @@ function router()
         $params = params($matchedUri, $uri);
         $paramsData = paramsFormat($uri, $params);
     }
-    var_dump($matchedUri);
-    die();
+
+    if (!empty($matchedUri)) {
+        callController($matchedUri);
+        return;
+    }
+
+    throw new Exception('Something is wrong bro !');
 }
