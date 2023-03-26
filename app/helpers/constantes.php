@@ -1,5 +1,5 @@
 <?php 
 
-define('TESTE', 'TESTE');
+define("CONTROLLER_PATH", "app\\controllers\\");
 
 ?>
