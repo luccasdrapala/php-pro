@@ -1,7 +1,8 @@
 <?php 
 
 function callController ($matchedUri, $params) {
-
+    var_dump($matchedUri);
+    die();
     [$controller, $method] = explode('@', array_values($matchedUri)[0]); // abreviação do methodo list
     var_dump($matchedUri);
     var_dump($controller);
