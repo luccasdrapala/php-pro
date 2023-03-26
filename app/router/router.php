@@ -24,7 +24,7 @@ function regularExpressionMatchArrayRoutes ($routes, $uri) { //constroi rota din
 function params ($matchedUri, $uri) {
 
     if(!empty($matchedUri)){
-    $matchedToGetParams = array_values($matchedUri)[0];
+    $matchedToGetParams = array_keys($matchedUri)[0];
         return array_diff(
             $uri,
             explode('/', ltrim($matchedToGetParams, '/'))
@@ -35,11 +35,7 @@ function params ($matchedUri, $uri) {
 
 function paramsFormat ($uri, $params) {
     $paramsData = [];
-    var_dump($uri);
-    echo '<br>';
-    var_dump($params);
-    die();
-    foreach($params as $index => $param){
+    foreach ($params as $index => $param){
         $paramsData[$uri[$index - 1]] = $param;
     }
     return $paramsData;
@@ -50,7 +46,6 @@ function router () {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
     $routes = routes();
-
     $matchedUri = verifyUriRoute($uri, $routes); //verifica se é uma rota não dinamica, caso seja dinamica retorna vazio
 
     $params = [];

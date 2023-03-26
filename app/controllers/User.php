@@ -5,7 +5,8 @@ namespace app\controllers;
 class User
 {
     public function show($params){
-        var_dump('show');
+        var_dump($params);
+        echo 'funcionou essa merda';
     }
     
     public function create($params){
