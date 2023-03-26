@@ -59,7 +59,7 @@ function router () {
     }
 
     if (!empty($matchedUri)) {
-        callController($matchedUri);
+        callController($matchedUri, $params);
         return;
     }
 

@@ -1,6 +1,6 @@
 <?php 
 
-function callController ($matchedUri) {
+function callController ($matchedUri, $params) {
 
     [$controller, $method] = explode('@', array_values($matchedUri)[0]); // abreviação do methodo list
     $controllerWithNamespace = CONTROLLER_PATH.$controller;
@@ -10,6 +10,10 @@ function callController ($matchedUri) {
     } 
 
     $controllerInstance = new $controllerWithNamespace;
-    $controllerInstance->$method();
 
+    if (!method_exists($controllerInstance, $method)) {
+        throw new Exception("O metodo {$method} não existe dentro de do controller {$controller}");
+    }
+
+    $controllerInstance->$method($params);
 }

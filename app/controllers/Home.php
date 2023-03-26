@@ -4,7 +4,7 @@ namespace app\controllers;
 
 class Home
 {
-    public function index(){
-        var_dump('Cheguei no home loucura');
+    public function index($params){
+        var_dump($params);
     }
 }
