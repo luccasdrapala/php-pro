@@ -3,9 +3,12 @@
 function callController ($matchedUri, $params) {
 
     [$controller, $method] = explode('@', array_values($matchedUri)[0]); // abreviação do methodo list
+    var_dump($matchedUri);
+    var_dump($controller);
     $controllerWithNamespace = CONTROLLER_PATH.$controller;
 
     if (!class_exists($controllerWithNamespace)) {
+        var_dump($controllerWithNamespace);
         throw new Exception("Controller {$controller} não existe");
     } 
 

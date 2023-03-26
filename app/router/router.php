@@ -50,8 +50,9 @@ function router () {
 
     $matchedUri = verifyUriRoute($uri, $routes); //verifica se é uma rota não dinamica, caso seja dinamica retorna vazio
 
-    if(empty($matchedUri)){
+    $paramsData = [];
 
+    if (empty($matchedUri)) {
         $matchedUri = regularExpressionMatchArrayRoutes($routes, $uri);
         $uri = explode('/', ltrim($uri, '/'));
         $params = params($matchedUri, $uri);
@@ -59,7 +60,7 @@ function router () {
     }
 
     if (!empty($matchedUri)) {
-        callController($matchedUri, $params);
+        callController($matchedUri, $paramsData);
         return;
     }
 
