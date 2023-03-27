@@ -58,8 +58,7 @@ function router () {
     }
 
     if (!empty($matchedUri)) {
-        callController($matchedUri, $params);
-        return;
+        return callController($matchedUri, $params);
     }
 
     throw new Exception('Something is wrong bro !');

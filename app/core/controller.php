@@ -14,5 +14,5 @@ function callController ($matchedUri, $params) {
         throw new Exception("O metodo {$method} não existe dentro de do controller {$controller}");
     }
 
-    $controllerInstance->$method($params);
+    return $controllerInstance->$method($params);
 }
