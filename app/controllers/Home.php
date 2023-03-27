@@ -8,7 +8,7 @@ class Home
         return [
             'view' => 'home.php',
             'data' => [
-                'name' => 'Luccas',
+                'title' => 'Home',
                 'idade' => 666]
         ];
     }
