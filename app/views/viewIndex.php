@@ -9,6 +9,10 @@
 <body>
 
     <h2><?php var_dump($data)?></h2>
+
+    <div>
+        <?php require ROOT. '/app/views/'. $data['view']?>
+    </div>
     
 </body>
 </html>
