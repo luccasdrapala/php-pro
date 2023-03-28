@@ -1,11 +1,12 @@
 <?php
 
-function all($fields = '*', $table)
+function all($table)
 {
     try{
         $connect = connect();
 
-        $query = $connection->query("select {$fields} from {$table}'");
+        $query = $connect->query("select * from {$table}");
+        return $query->fetchAll();
     }catch(PDOException $e) {
         var_dump($e->getMessage());
     }
