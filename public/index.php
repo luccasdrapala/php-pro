@@ -5,8 +5,15 @@ require 'bootstrap.php';
 try {
     $data = router();
 
+    var_dump($data);
+    die();
+
     if (!isset($data['data'])){
         throw new Exception('O indice data esta faltando');
+    }
+
+    if (!isset($data['title'])){
+        throw new Exception('O indice title esta faltando');
     }
 
     if (!isset($data['view'])) {

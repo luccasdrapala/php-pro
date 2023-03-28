@@ -5,8 +5,9 @@ namespace app\controllers;
 class User
 {
     public function show($params){
-        var_dump($params);
-        echo 'funcionou essa merda';
+        if (!isset($params['user'])){
+            return header('Location: /');
+        }
     }
     
     public function create($params){
