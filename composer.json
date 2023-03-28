@@ -14,7 +14,8 @@
             "app/router/router.php",
             "app/core/controller.php",
             "app/database/connection.php",
-            "app/database/fetch.php"
+            "app/database/fetch.php",
+            "app/helpers/redirect.php"
         ],
         "psr-4": {
             "app\\": "app"

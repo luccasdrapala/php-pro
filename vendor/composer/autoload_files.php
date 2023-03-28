@@ -11,4 +11,5 @@ return array(
     'b73661d51333a41a40bdeda969e828e6' => $baseDir . '/app/core/controller.php',
     '25874ae84cceb6efb9d5f443eb9cb34c' => $baseDir . '/app/database/connection.php',
     '323db3d9c12509602da22cded1cb8c9f' => $baseDir . '/app/database/fetch.php',
+    '34df3ba8e2a2f4f49761a51bda0afecc' => $baseDir . '/app/helpers/redirect.php',
 );

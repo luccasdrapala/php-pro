@@ -5,9 +5,6 @@ require 'bootstrap.php';
 try {
     $data = router();
 
-    var_dump($data);
-    die();
-
     if (!isset($data['data'])){
         throw new Exception('O indice data esta faltando');
     }
