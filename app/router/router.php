@@ -1,14 +1,9 @@
 <?php 
 
-function routes () {
-    return require 'routes.php';
-}
-
 function verifyUriRoute ($uri, $routes) {
-    if(array_key_exists($uri, $routes)){
-        return [$uri => $routes[$uri]];
-    }
-    return [];
+    return (array_key_exists($uri, $routes)) ? 
+    [$uri => $routes[$uri]] : 
+    [];
 }
 
 function regularExpressionMatchArrayRoutes ($routes, $uri) { //constroi rota dinamica
@@ -45,7 +40,8 @@ function router () {
 
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-    $routes = routes();
+    $routes = require 'routes.php';
+
     $matchedUri = verifyUriRoute($uri, $routes); //verifica se é uma rota não dinamica, caso seja dinamica retorna vazio
 
     $params = [];
