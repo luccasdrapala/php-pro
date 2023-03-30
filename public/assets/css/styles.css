@@ -19,6 +19,7 @@ body {
 
 .container {
     border: 1px solid black;
+    border-radius: 4px;
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -35,9 +36,13 @@ body {
     margin-right: 15px;
 }
 
-#menu_list li a{
+#menu_list li a {
     text-decoration: solid;
     color: black;
+}
+
+#menu_list li a:hover{
+    color: rgb(255, 255, 255);
 }
 
 #users_home {
