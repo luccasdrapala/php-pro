@@ -47,7 +47,7 @@ body {
 
 #users_home {
     list-style: none;
-    padding: o;
+    padding: 0;
 }
 
 #users_home li{
@@ -58,5 +58,37 @@ body {
 
 #users_home li:hover{
     background-color: #fcf826;
+}
+
+.box {
+    text-align: center;
+    margin: auto;
+    line-height: 30px;
+    margin-bottom: 10px;
+    font-size: larger;
+}
+
+.box input {
+    width: 50%;
+    height: 25px;
+}
+
+#h2_header {
+    text-align: center;
+}
+
+#login_button {
+    display: block;
+    padding: 12px 35px;
+    background-color: #fcf826;
+    border: none;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 20px;
+    font-size: larger;
+}
+
+#login_button:hover {
+    background-color: #b9b9b9;
 }
 
