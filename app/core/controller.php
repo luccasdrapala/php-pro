@@ -14,5 +14,10 @@ function callController ($matchedUri, $params) {
         throw new Exception("O metodo {$method} não existe dentro de do controller {$controller}");
     }
 
-    return $controllerInstance->$method($params);
+    $controller = $controllerInstance->$method($params);
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') { //caso a requisição seja POST e não redirecione ele cai aqui para não executar o index novamente
+        die();
+    }
+    return $controller;
 }
