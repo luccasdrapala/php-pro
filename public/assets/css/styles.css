@@ -65,12 +65,13 @@ body {
     margin: auto;
     line-height: 30px;
     margin-bottom: 10px;
-    font-size: larger;
 }
 
 .box input {
     width: 50%;
     height: 25px;
+    font-size: 1em;
+    padding-left: 3px;
 }
 
 #h2_header {
