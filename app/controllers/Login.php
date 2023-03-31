@@ -17,7 +17,7 @@ class Login
         $password = filter_input(INPUT_POST, 'password',  FILTER_SANITIZE_STRING);
 
         if (empty($email) || empty($password)){
-            return header('Location: /login?status=erro');
+            return header('Location: /login?status=empt-yvalues');
         }
 
         $user = findBy('users', 'email', $email);
@@ -26,8 +26,8 @@ class Login
             var_dump('cai no user');
         }
 
-        if ($password === $user->password) { //password_verify não est asetado pois as senhas no banco estão sem hash
-            return header('Location: /login?status=erro');
+        if (!$password == $user->password) { //password_verify não esta asetado pois as senhas no banco estão sem hash
+            return header('Location: /login?status=wrong-password');
         }
 
         $_SESSION['logged'] = $user;
