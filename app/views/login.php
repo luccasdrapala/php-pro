@@ -2,7 +2,7 @@
 
 <br>
 
-<form action="" method="post">
+<form action="/login" method="post">
     <div class="box">
         <label for="email">Digite seu email:</label><br>
         <input type="email" name="email" id="email"><br>

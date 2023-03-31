@@ -11,4 +11,10 @@ class Login
             'data' => []
         ];
     }
+
+    public function store() {
+        var_dump('login');
+        die();
+    }
+
 }
