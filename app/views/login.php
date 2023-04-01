@@ -1,5 +1,7 @@
 <h2 id="h2_header">Login</h2>
-<?php echo getFlash("message");?>
+<?php 
+    echo getFlash('message');
+?>
 <br>
 
 <form action="/login" method="post">
