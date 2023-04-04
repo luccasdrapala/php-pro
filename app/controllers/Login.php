@@ -14,25 +14,27 @@ class Login
 
     public function store() {
         $email = filter_input(INPUT_POST, 'email',  FILTER_SANITIZE_EMAIL);
-        $password = filter_input(INPUT_POST, 'password',  FILTER_SANITIZE_STRING);
+        $password = filter_input(INPUT_POST, 'password',  FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (empty($email) || empty($password)){
-            return setMessageAndRedirect('message', 'Campos vazios', '/login');
+            setFlash('message', 'Campos vazios');
+            
         }
 
         $user = findBy('users', 'email', $email);
 
         if (!$user) {
-            return setMessageAndRedirect('message', 'Usuário incorreto', '/login');
+            setMessageAndRedirect('message', 'Usuário incorreto');
+            
         }
 
         if ($password !== $user->password) { //password_verify não esta asetado pois as senhas no banco estão sem hash
-            return setMessageAndRedirect('message', 'Senha incorreta', '/login');
+            setMessageAndRedirect('message', 'Senha incorreta');
+            
         }
 
-        unset($_SESSION['flash']['message']);
         $_SESSION['logged'] = $user;
-        return header('Location: /');
+        //return header('Location: /');
 
     }
 }

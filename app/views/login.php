@@ -1,6 +1,6 @@
 <h2 id="h2_header">Login</h2>
 <?php 
-    echo getFlash('message');
+    echo getFlash('message', 'color:red');
 ?>
 <br>
 
