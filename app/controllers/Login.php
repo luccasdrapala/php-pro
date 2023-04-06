@@ -18,19 +18,19 @@ class Login
 
         if (empty($email) || empty($password)){
             setFlash('message', 'Campos vazios');
-            
+            return redirect('/login');
         }
 
         $user = findBy('users', 'email', $email);
 
         if (!$user) {
             setMessageAndRedirect('message', 'Usuário incorreto');
-            
+            return redirect('/login');
         }
 
         if ($password !== $user->password) { //password_verify não esta asetado pois as senhas no banco estão sem hash
             setMessageAndRedirect('message', 'Senha incorreta');
-            
+            return redirect('/login');
         }
 
         $_SESSION['logged'] = $user;
