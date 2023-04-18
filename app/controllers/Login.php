@@ -35,6 +35,12 @@ class Login
 
         $_SESSION[LOGGED] = $user;
         return header('Location: /');
-
     }
+
+    public function destroy() {
+        unset($_SESSION[LOGGED]);
+
+        return redirect('/');
+    }
+
 }

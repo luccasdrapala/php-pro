@@ -6,7 +6,7 @@
 
 <div class="status_login">
     <?php if (logged()):  ?>
-        Olá, <?php echo user()->name; ?> | <a href="">Sair</a>
+        Olá, <?php echo user()->name; ?> | <a href="/logout">Sair</a>
     <?php else: ?>
         Bem vindo, visitante !
     <?php endif; ?>
