@@ -33,8 +33,8 @@ class Login
             return redirect('/login');
         }
 
-        $_SESSION['logged'] = $user;
-        //return header('Location: /');
+        $_SESSION[LOGGED] = $user;
+        return header('Location: /');
 
     }
 }

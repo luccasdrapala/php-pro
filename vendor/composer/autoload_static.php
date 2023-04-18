@@ -14,6 +14,7 @@ class ComposerStaticInitb6ebdf0d87b9c069cdafe38ee0f85120
         '323db3d9c12509602da22cded1cb8c9f' => __DIR__ . '/../..' . '/app/database/fetch.php',
         '34df3ba8e2a2f4f49761a51bda0afecc' => __DIR__ . '/../..' . '/app/helpers/redirect.php',
         '28190825494d9bd9fc8189f3fe0b8a53' => __DIR__ . '/../..' . '/app/helpers/flash.php',
+        '9e7737ccf228cc2cff0c79d17b69abcc' => __DIR__ . '/../..' . '/app/helpers/sessions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
