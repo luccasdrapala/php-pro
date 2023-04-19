@@ -15,6 +15,10 @@ class User
     }
     
     public function create($params){
-        var_dump('create');
+        return [
+            'view' => 'create.php',
+            'title' => 'Create user',
+            'data' => []
+        ];
     }
 }
