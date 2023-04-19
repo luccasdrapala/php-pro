@@ -1,4 +1,4 @@
-<h2 id="h2_header">Login</h2>
+<h2 class="h2_header">Login</h2>
 <?php 
     echo getFlash('message', 'color:red');
 ?>
@@ -13,5 +13,5 @@
         <label for="password">Digite sua senha:</label><br>
         <input type="password" name="password" id="password"><br>
     </div>
-    <button id="login_button" type="submit">Login</button>
+    <button class="login_button" type="submit">Login</button>
 </form>
