@@ -7,6 +7,10 @@ function validate (array $validations)
         if (!str_contains($validate, '|')) {
             $result[$field] = $validate($field);
         } else {
+            $explodedValidate = explode('|', $validate);
+            foreach ($explodedValidate as $validate) {
+                $result[$field] = $validate($field);
+            }
         }
     }
 
@@ -15,7 +19,6 @@ function validate (array $validations)
     }
 
     return $result;
-
 }
 
 function required($field) {
@@ -25,4 +28,25 @@ function required($field) {
     }
 
     return filter_input(INPUT_POST, $field, FILTER_SANITIZE_SPECIAL_CHARS);
+}
+
+function email($field) 
+{
+    $emailIsValid = filter_input(INPUT_POST, $field, FILTER_VALIDATE_EMAIL);
+
+    if (!$emailIsValid) {
+        setFlash($field, " O campo tem que ser um email valido");
+        return false;
+    }
+
+    return filter_input(INPUT_POST, $field, FILTER_VALIDATE_EMAIL);    
+}
+
+function unique($field) 
+{
+
+}
+
+function maxlen($field) {
+
 }
