@@ -28,8 +28,8 @@ class User
         $validate = validate([
             'name' => 'required',
             'lastname' => 'required',
-            'email' => 'required|unique',
-            'password' => 'required|maxlen'
+            'email' => 'required|unique:users', //users é a tabela onde se deseja fazer a consulta
+            'password' => 'required|maxlen:10' //10 é o numero de caracteres maximo
         ]);
 
         if (!$validate) {
