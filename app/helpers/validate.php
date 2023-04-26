@@ -3,15 +3,21 @@
 function validate (array $validations) 
 {
     $result = [];
+    $params = '';
+
     foreach($validations as $field => $validate) {
         if (!str_contains($validate, '|')) {
-            $result[$field] = $validate($field);
+            if(str_contains($validate, ":")){
+                [$validate, $params] = explode(':', $validate);
+            }
+            $result[$field] = $validate($field, $params);
         } else {
             $explodedValidate = explode('|', $validate);
             foreach ($explodedValidate as $validate) {
                 $result[$field] = $validate($field);
             }
         }
+        die();
     }
 
     if(in_array(false, $result)) {
@@ -42,9 +48,9 @@ function email($field)
     return filter_input(INPUT_POST, $field, FILTER_VALIDATE_EMAIL);    
 }
 
-function unique($field) 
+function unique($field, $params) 
 {
-
+    var_dump($field, $params);
 }
 
 function maxlen($field) {
