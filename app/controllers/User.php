@@ -10,7 +10,6 @@ class User
         }
 
         $user = findBy('users','id', $params['user']);
-        var_dump($user);
         die();
     }
     

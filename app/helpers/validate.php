@@ -14,10 +14,12 @@ function validate (array $validations)
         } else {
             $explodedValidate = explode('|', $validate);
             foreach ($explodedValidate as $validate) {
-                $result[$field] = $validate($field);
+                if(str_contains($validate, ":")){
+                    [$validate, $params] = explode(':', $validate);
+                }
+                $result[$field] = $validate($field, $params);
             }
         }
-        die();
     }
 
     if(in_array(false, $result)) {
@@ -50,7 +52,7 @@ function email($field)
 
 function unique($field, $params) 
 {
-    var_dump($field, $params);
+    $user = 
 }
 
 function maxlen($field) {

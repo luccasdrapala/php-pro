@@ -3,7 +3,6 @@
 function setFlash($index, $message) 
 {
     $_SESSION['flash'][$index] = $message;
-    var_dump($_SESSION);
 }
 
 function getFlash($index, $style = "color:red;") 
