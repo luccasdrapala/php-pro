@@ -34,5 +34,8 @@ class User
         if (!$validate) {
             return redirect('/user/create');
         }
+
+        var_dump($validate);
+        die();
     }
 }

@@ -31,7 +31,7 @@ function multipleValidations($validate, $params, $field) {
         if(str_contains($validate, ":")){
             [$validate, $params] = explode(':', $validate);
         }
-        $result[$field] = $validate($field, $params);
+        $result = $validate($field, $params);
     }
     return $result;
 }
