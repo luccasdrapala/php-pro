@@ -63,6 +63,12 @@ function unique($field, $params)
 
 }
 
-function maxlen($field) {
+function maxlen($field, $param) {
 
+    $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_SPECIAL_CHARS);
+    if(strlen($data) > $param) {
+        setFlash($field, "Senha não pode passar de {$param} caracteres");
+        return false;
+    }
+    return $data;
 }
