@@ -52,7 +52,15 @@ function email($field)
 
 function unique($field, $params) 
 {
-    $user = 
+    $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_SPECIAL_CHARS);
+    $user = findBy($params, $field, $data);
+
+    if ($user) {
+        setFlash($field, "O valor já esta cadastrado");
+        return false;
+    }
+    return $data;
+
 }
 
 function maxlen($field) {
