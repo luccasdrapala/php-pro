@@ -3,7 +3,7 @@
     echo getFlash('message', 'color:red');
 ?>
 <br>
-
+<?php if (!logged()):  ?>
 <form action="/login" method="post">
     <div class="box">
         <label for="email">Digite seu email:</label><br>
@@ -15,3 +15,6 @@
     </div>
     <button class="login_button" type="submit">Login</button>
 </form>
+<?php else: ?>
+    <h2>Usuário já esta logado</h2>
+<?php endif; ?>
