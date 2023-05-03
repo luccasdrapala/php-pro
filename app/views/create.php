@@ -2,6 +2,8 @@
 
 <br>
 
+<?php echo getFlash('message', 'color:red');?>
+
 <form action="/user/store" method="post">
 
     <div class="box">

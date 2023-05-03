@@ -39,7 +39,11 @@ class User
 
         $created = create('users', $validate);
 
-        var_dump($created);
-        die();
+        if (!$created) {
+            setflash('message', 'Erro ao cadastrar o usuário !!');
+            return redirect('/user/create');
+        }
+
+        return redirect('/');
     }
 }
