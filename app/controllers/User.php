@@ -35,6 +35,8 @@ class User
             return redirect('/user/create');
         }
 
+        $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
+
         $created = create('users', $validate);
 
         var_dump($created);
