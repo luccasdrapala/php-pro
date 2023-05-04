@@ -20,7 +20,7 @@
             "app/helpers/flash.php",
             "app/helpers/sessions.php",
             "app/helpers/validate.php",
-            "app/helpers/validate.php"
+            "app/helpers/validations.php"
         ],
         "psr-4": {
             "app\\": "app"
