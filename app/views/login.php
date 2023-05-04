@@ -1,3 +1,5 @@
+<?php $this->layout('viewIndex', ['title' => 'Login']); ?>
+
 <h2 class="h2_header">Login</h2>
 <?php 
     echo getFlash('message', 'color:red');

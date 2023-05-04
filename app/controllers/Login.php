@@ -6,7 +6,7 @@ class Login
 {
     public function index() {
         return [
-            'view' => 'login.php',
+            'view' => 'login',
             'title' => 'Login',
             'data' => []
         ];

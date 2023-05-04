@@ -1,5 +1,6 @@
-<h2 class="h2_header">Cadastrar Usuário</h2>
+<?php $this->layout('viewIndex', ['title' => 'Registrar Usuário']); ?>
 
+<h2 class="h2_header">Cadastrar Usuário</h2>
 <br>
 
 <?php echo getFlash('message', 'color:red');?>

@@ -17,15 +17,21 @@ try {
         throw new Exception('O indice View esta faltando');
     }
 
-    if (!file_exists(ROOT.'/app/views/'. $data['view'])){
+    if (!file_exists(ROOT.'/app/views/'. $data['view'] . '.php')){
         throw new Exception("O View {$data['view']} não existe");
     }
 
-    extract($data['data']); //olhar documentação php
+    // extract($data['data']); //olhar documentação php
 
-    $view = $data['view']; //seta arquivo que sera carregado dentro do viewIndex.php
+    // $view = $data['view']; //seta arquivo que sera carregado dentro do viewIndex.php
 
-    require ROOT.'/app/views/viewIndex.php';
+    // require ROOT.'/app/views/viewIndex.php';
+
+    // Create new Plates instance
+    $templates = new League\Plates\Engine(ROOT. '/app/views/');
+
+    // Render a template
+    echo $templates->render($data['view'], $data['data']);
 
 } catch (Exception $e) {    
     var_dump($e->getMessage());

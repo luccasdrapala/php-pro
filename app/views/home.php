@@ -1,3 +1,5 @@
+<?php $this->layout('viewIndex', ['title' => 'Home']); ?>
+
 <h2>HOME</h2>
 <br>
 
