@@ -1,7 +1,11 @@
 <?php 
 
-function create($table, $data) {
+function create(string $table, array $data) {
     try {
+
+        if (!arrayIsAssociative($data)){
+            throw new Exception('O array não é do tipo associativo');
+        }
 
         $connect = connect();
 

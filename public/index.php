@@ -21,17 +21,17 @@ try {
         throw new Exception("O View {$data['view']} não existe");
     }
 
-    // extract($data['data']); //olhar documentação php
-
-    // $view = $data['view']; //seta arquivo que sera carregado dentro do viewIndex.php
-
-    // require ROOT.'/app/views/viewIndex.php';
-
     // Create new Plates instance
     $templates = new League\Plates\Engine(ROOT. '/app/views/');
 
     // Render a template
     echo $templates->render($data['view'], $data['data']);
+
+    // extract($data['data']); //olhar documentação php
+
+    // $view = $data['view']; //seta arquivo que sera carregado dentro do viewIndex.php
+
+    // require ROOT.'/app/views/viewIndex.php';
 
 } catch (Exception $e) {    
     var_dump($e->getMessage());
