@@ -18,6 +18,7 @@
             "app/database/connection.php",
             "app/database/fetch.php",
             "app/database/create.php",
+            "app/database/update.php",
             "app/helpers/redirect.php",
             "app/helpers/flash.php",
             "app/helpers/sessions.php",
