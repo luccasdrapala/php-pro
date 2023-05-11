@@ -19,7 +19,7 @@
         <?=$this->section('content')?>
     </div>
 
-    <div class="container">
+    <div>
         <?=$this->section('scripts')?>
     </div>
     
