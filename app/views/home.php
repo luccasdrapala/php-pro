@@ -8,3 +8,11 @@
         <li><?php echo $user->name?> | <a href="/user/<?php echo $user->id?>">Detalhes</a></li>
     <?php endforeach; ?>
 </ul>
+
+<?php $this->start('scripts') ?>
+
+<script>
+    alert('teste')
+</script>
+
+<?php $this->stop() ?>

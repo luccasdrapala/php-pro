@@ -18,6 +18,10 @@
     <div class="container">
         <?=$this->section('content')?>
     </div>
+
+    <div class="container">
+        <?=$this->section('scripts')?>
+    </div>
     
 </body>
 </html>
