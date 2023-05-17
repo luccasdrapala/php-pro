@@ -1,1 +1,3 @@
-alert('teste teste')
+import users from "./users";
+
+users();
