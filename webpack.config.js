@@ -4,7 +4,7 @@ module.exports = {
      mode: 'development',
      devtool: process.env.NODE_ENV == 'development' ? 'source-map' : '',
      entry: {
-          app: ['./public/app.js'],
+          app: ['./public/assets/js/app.js'],
      },
      output: {
           path: path.resolve(__dirname, 'public'),

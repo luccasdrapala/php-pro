@@ -1,0 +1,1 @@
+{"version":3,"file":"app.js","mappings":";;;;;AAAAA,KAAK,CAAC,OAAO,CAAC,C","sources":["webpack://php-pro/./public/assets/js/app.js"],"sourcesContent":["alert('teste')"],"names":["alert"],"sourceRoot":""}
