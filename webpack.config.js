@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-     mode: 'development',
+     mode: process.env.NODE_ENV == 'development' ? 'development' : 'production',
      devtool: process.env.NODE_ENV == 'development' ? 'source-map' : '',
      entry: {
           app: ['./public/assets/js/app.js'],
