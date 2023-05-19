@@ -21,6 +21,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "alpinejs": "^3.12.1",
     "axios": "^1.4.0",
     "cross-env": "^7.0.3"
   }
