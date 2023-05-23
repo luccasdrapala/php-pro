@@ -19,4 +19,5 @@ return array(
     '7e5a268ad9da72dca22ca49f5a68ecb1' => $baseDir . '/app/helpers/validate.php',
     '5e0c7b4f05014779a85dbe3446ae955e' => $baseDir . '/app/helpers/validations.php',
     '90f90441e2283ce248bd1a134f02aa25' => $baseDir . '/app/helpers/helpers.php',
+    '51a82982c5bebe9cc0d46bffd0f4267f' => $baseDir . '/app/helpers/old.php',
 );

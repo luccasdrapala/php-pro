@@ -29,7 +29,7 @@ class User
             'lastname' => 'required',
             'email' => 'email|required', //users é a tabela onde se deseja fazer a consulta
             'password' => 'required|maxlen:10' //10 é o numero de caracteres maximo
-        ]);
+        ],true);
 
         if (!$validate) {
             return redirect('/user/create');
