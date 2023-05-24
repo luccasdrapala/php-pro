@@ -1,7 +1,11 @@
 <?php 
 
-function validate (array $validations, bool $persistInputs = false) 
-{
+function validate (array $validations, bool $persistInputs = false, bool $checkCsrf = false) 
+{   
+    if ($checkCsrf) {
+        checkCsrf();
+    }
+
     $result = [];
     $params = '';
 

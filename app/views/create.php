@@ -7,6 +7,8 @@
 
 <form action="/user/store" method="post">
 
+    <?php echo getCsrf(); ?>
+
     <div class="box">
         <label for="name">Nome</label>
         <input type="text" class="form-control" name="name" placeholder="Seu nome..." value="<?php echo getOld("name")?>">
