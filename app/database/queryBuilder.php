@@ -15,6 +15,10 @@ function limit(string|int $limit)
 {
     global $query;
 
+    if (isset($query['paginate'])) {
+        throw new Exception('O limit não pode vir depois da paginação');
+    }
+
     $query['limit'] = true;
     $query['sql'] = "{$query['sql']} limit {$limit}";
 }
@@ -27,7 +31,22 @@ function order(string $by, string $order = 'asc')
         throw new Exception('O order não pode vir depois do limit');
     }
 
+    if (isset($query['paginate'])) {
+        throw new Exception('O order não pode vir depois da paginação');
+    }
+
     $query['sql'] = "{$query['sql']} order by {$by} {$order}";
+}
+
+function paginate(int|string $perPage = 10) 
+{
+    global $query;
+
+    if (isset($query['limit'])) {
+        throw new Exception('Apaginação não pode ser chamada com o limit');
+    }
+
+    $query['paginate'] = true;
 }
 
 function where(string $field, string $operator, string|int $value) 
