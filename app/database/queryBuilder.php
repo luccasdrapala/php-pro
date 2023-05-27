@@ -49,7 +49,7 @@ function paginate(int|string $perPage = 10)
     $query['paginate'] = true;
 }
 
-function where(string $field, string $operator, string|int $value) 
+function where(string $field, string $operator = "=", string|int $value) 
 {
     global $where;
 
