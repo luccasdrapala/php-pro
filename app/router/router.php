@@ -55,6 +55,11 @@ function router () {
         $params = paramsFormat($uri, $params);
     }
 
+    // forma de tratar sistema em manutencao
+    if ($_ENV['MAINTENANCE'] === 'true') {
+       $matchedUri = ['/maintenance' => 'Maintenance@index'];
+    }
+
     if (!empty($matchedUri)) {
         return callController($matchedUri, $params);
     }

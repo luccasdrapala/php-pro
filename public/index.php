@@ -3,6 +3,13 @@
 require 'bootstrap.php';
 
 try {
+
+    // forma de tratar sistema em manutencao
+    // if ($_ENV['MAINTENANCE']) {
+    //    require 'maintenance.php';
+    //    die();
+    // }
+
     $data = router();
 
     if (isAjax()){
