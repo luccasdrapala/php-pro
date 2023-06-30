@@ -6,9 +6,9 @@ class Home
 {
     public function index($params)
     {
-        read('users', 'id, name, email,qwe');
+        read('users', 'id, name, email');
 
-        $users = execute(false);
+        $users = execute(false, true);
 
         echo '<pre>';
         var_dump($users);

@@ -87,21 +87,26 @@ function orWhere(string $field, string $operator, string|int $value, string $typ
     $query['sql'] = "{$query['sql']} {$typeWhere} {$field} {$operator} :{$field}";
 }
 
-function execute(bool $isFetchAll = true) {
+function execute(bool $isFetchAll = true, bool $rowCount = false) {
 
     try {
 
         global $query;
         $connect = connect();
 
+        if (!isset($query['sql'])) {
+            throw new Exception('A consulta deve ser construida');
+        }
+
         $prepare = $connect->prepare($query['sql']);
         $prepare->execute($query['execute'] ?? []);
 
-        if ($isFetchAll) {
-            return $prepare->fetchAll();
+        if ($rowCount) {
+            return $prepare->rowCount();
         }
-        return $prepare->fetch();
 
+        return $isFetchAll ? $prepare->fetchAll() : $prepare->fetch();
+    
     } catch (Exception $e) {
         $message = "Erro no arquivo {$e->getFile()}, na linha {$e->getLine()} com a mensagem {$e->getMessage()}" ;
         var_dump($message);
