@@ -6,7 +6,14 @@ class Home
 {
     public function index($params)
     {
-        $users = all('users');
+        read('users', 'id, name, email,qwe');
+
+        $users = execute(false);
+
+        echo '<pre>';
+        var_dump($users);
+        echo '</pre>';
+
         return [
             'view' => 'home',
             'title' => 'Home',

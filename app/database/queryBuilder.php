@@ -4,7 +4,7 @@ $query = [];
 
 function read(string $table, string $fields = '*') 
 {
-    global $where;
+    global $query;
 
     $query['read'] = true; //flag para o a proxima etapa da query
     $query['execute'] = [];
@@ -87,13 +87,23 @@ function orWhere(string $field, string $operator, string|int $value, string $typ
     $query['sql'] = "{$query['sql']} {$typeWhere} {$field} {$operator} :{$field}";
 }
 
-function execute() {
+function execute(bool $isFetchAll = true) {
 
-    global $query;
-    $connect = connect();
+    try {
 
-    $prepare = $connect->prepare($query['sql']);
-    $prepare->execute($query['execute'] ?? []);
+        global $query;
+        $connect = connect();
 
-    return $prepare->fetchAll();
+        $prepare = $connect->prepare($query['sql']);
+        $prepare->execute($query['execute'] ?? []);
+
+        if ($isFetchAll) {
+            return $prepare->fetchAll();
+        }
+        return $prepare->fetch();
+
+    } catch (Exception $e) {
+        $message = "Erro no arquivo {$e->getFile()}, na linha {$e->getLine()} com a mensagem {$e->getMessage()}" ;
+        var_dump($message);
+    }
 }
