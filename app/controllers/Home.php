@@ -6,13 +6,15 @@ class Home
 {
     public function index($params)
     {
-        read('users', 'id, name, email');
+        $search = filter_input(INPUT_GET, 's', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $users = execute(false, true);
+        read('users', 'id, name, lastname');
 
-        echo '<pre>';
-        var_dump($users);
-        echo '</pre>';
+        if ($search) {
+            search(['name' => $search, 'lastname' => $search]);
+        }
+
+        $users = execute();
 
         return [
             'view' => 'home',

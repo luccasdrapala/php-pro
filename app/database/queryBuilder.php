@@ -87,6 +87,36 @@ function orWhere(string $field, string $operator, string|int $value, string $typ
     $query['sql'] = "{$query['sql']} {$typeWhere} {$field} {$operator} :{$field}";
 }
 
+function search(array $search) 
+{
+    global $query;
+
+    if (isset($query['where'])) {
+        throw new Exception("Nao pode chamar o where na busca do search");
+    }
+
+    if (!arrayIsAssociative($search)) {
+        throw new Exception("Array nao pode ser associativo");
+    }
+
+    $sql = "{$query['sql']} where ";
+
+    $execute = [];
+
+    foreach ($search as $field => $searched) {
+        $sql .= "{$field} like :{$field} or ";
+        $execute[$field] = "%{$searched}%";
+    }
+
+    $sql = rtrim($sql, ' or ');
+
+    var_dump($sql);
+    var_dump($execute);
+
+    $query['sql'] = $sql;
+    $query['execute'] = $execute;
+}
+
 function execute(bool $isFetchAll = true, bool $rowCount = false) {
 
     try {
