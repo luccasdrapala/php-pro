@@ -3,13 +3,20 @@
 <h2>HOME</h2>
 <br>
 
-<div x-data="users" x-init="loadUsers()">
+<!-- <div x-data="users" x-init="loadUsers()">
     <ul>
         <template x-for="user in data">
             <li x-text="user.name"></li>
         </template>
     </ul>
-</div>
+</div> -->
+
+<form action="/" method="get">
+
+    <input class="box" type="text" name="s" placeholder="Buscar valores">
+    <button class="box" type="submit">Buscar</button>
+
+</form>
 
 <ul id="users_home">
     <?php foreach($users as $user): ?>

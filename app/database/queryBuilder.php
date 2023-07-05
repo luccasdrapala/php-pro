@@ -110,9 +110,6 @@ function search(array $search)
 
     $sql = rtrim($sql, ' or ');
 
-    var_dump($sql);
-    var_dump($execute);
-
     $query['sql'] = $sql;
     $query['execute'] = $execute;
 }
