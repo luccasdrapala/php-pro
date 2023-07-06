@@ -5,6 +5,7 @@ $query = [];
 function read(string $table, string $fields = '*') 
 {
     global $query;
+    $query = [];
 
     $query['read'] = true; //flag para o a proxima etapa da query
     $query['execute'] = [];
@@ -51,7 +52,7 @@ function paginate(int|string $perPage = 10)
 
 function where(string $field, string $operator = "=", string|int $value) 
 {
-    global $where;
+    global $query;
 
     if (!isset($query['sql'])) {
         throw new Exception("Antes de chamar o where, chamar o read");
@@ -68,7 +69,7 @@ function where(string $field, string $operator = "=", string|int $value)
 
 function orWhere(string $field, string $operator, string|int $value, string $typeWhere = 'or') 
 {
-    global $where;
+    global $query;
 
     if (!isset($query['sql'])) {
         throw new Exception("Antes de chamar o where, chamar o read");
@@ -87,7 +88,19 @@ function orWhere(string $field, string $operator, string|int $value, string $typ
     $query['sql'] = "{$query['sql']} {$typeWhere} {$field} {$operator} :{$field}";
 }
 
-function search(array $search) 
+function whereIn(string $field, array $data) 
+{
+    global $query;
+    
+    if (isset($query['where'])) {
+        throw new Exception("Nao eh possivel chamar o whereIn depois de chamar where()");
+    }
+
+    $query['where'] = true;
+    $query['sql'] = "{$query['sql']} where {$field} in (" . '\'' . implode('\',\'', $data) . "')";
+}
+
+function search(array $search)
 {
     global $query;
 
