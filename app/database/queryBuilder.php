@@ -1,5 +1,8 @@
 <?php 
 
+use Doctrine\Inflector\InflectorFactory;
+use Doctrine\Inflector\Language;
+
 $query = [];
 
 function read(string $table, string $fields = '*') 
@@ -98,6 +101,29 @@ function whereIn(string $field, array $data)
 
     $query['where'] = true;
     $query['sql'] = "{$query['sql']} where {$field} in (" . '\'' . implode('\',\'', $data) . "')";
+}
+
+function fieldFK(String $table, string $field)
+{
+    $inflector = InflectorFactory::create()->build();
+    $tableToSingular = $inflector->singularize($table);
+
+    return $tableToSingular . ucfirst($field);
+}
+
+function tableJoin() 
+{
+    global $query;
+
+    if (isset($query['where'])) {
+        throw new Exception("Nao colocar where antes do join");
+        
+    }
+}
+
+function tableJoinWithFK() 
+{
+    
 }
 
 function search(array $search)

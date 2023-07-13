@@ -9,7 +9,8 @@
     ],
     "require": {
         "league/plates": "^3.5",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "doctrine/inflector": "^2.0"
     },
     "autoload": {
         "files": [

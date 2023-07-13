@@ -3,13 +3,22 @@
         'name' => 'luccasdrapala/php-pro',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e0b99406be81618b0dc4b61545e0fff89f2554c4',
+        'reference' => 'de90db82322aebaa2a678a5be04be8986119fc70',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'doctrine/inflector' => array(
+            'pretty_version' => '2.0.8',
+            'version' => '2.0.8.0',
+            'reference' => 'f9301a5b2fb1216b2b08f02ba04dc45423db6bff',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/inflector',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'graham-campbell/result-type' => array(
             'pretty_version' => 'v1.1.1',
             'version' => '1.1.1.0',
@@ -31,7 +40,7 @@
         'luccasdrapala/php-pro' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e0b99406be81618b0dc4b61545e0fff89f2554c4',
+            'reference' => 'de90db82322aebaa2a678a5be04be8986119fc70',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

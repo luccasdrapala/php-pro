@@ -54,6 +54,7 @@ class ComposerStaticInitb6ebdf0d87b9c069cdafe38ee0f85120
         'D' => 
         array (
             'Dotenv\\' => 7,
+            'Doctrine\\Inflector\\' => 19,
         ),
     );
 
@@ -89,6 +90,10 @@ class ComposerStaticInitb6ebdf0d87b9c069cdafe38ee0f85120
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'Doctrine\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
         ),
     );
 
