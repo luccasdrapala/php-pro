@@ -8,7 +8,7 @@ class Home
     {
         $search = filter_input(INPUT_GET, 's', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        read('users', 'id, name, lastname');
+        read('users', 'users.id, name, lastname');
 
         if ($search) {
             search(['name' => $search, 'lastname' => $search]);

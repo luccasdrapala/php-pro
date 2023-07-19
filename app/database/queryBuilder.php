@@ -9,8 +9,9 @@ function read(string $table, string $fields = '*')
 {
     global $query;
     $query = [];
-
+    $query['table'] = $table;
     $query['read'] = true; //flag para o a proxima etapa da query
+
     $query['execute'] = [];
     $query['sql'] = "select {$fields} from {$table}";
 }
@@ -111,14 +112,16 @@ function fieldFK(String $table, string $field)
     return $tableToSingular . ucfirst($field);
 }
 
-function tableJoin() 
+function tableJoin(string $table, string $fieldFK, string $typeJoin = "inner") 
 {
     global $query;
 
     if (isset($query['where'])) {
         throw new Exception("Nao colocar where antes do join");
-        
     }
+
+    $FkToJoin = fieldFK($query['table'], $fieldFK);
+    $query['sql'] = "{$query['sql']} {$typeJoin} join {$table} on {$table}.{$FkToJoin} = {$query['table']}.{$fieldFK}"; 
 }
 
 function tableJoinWithFK() 
